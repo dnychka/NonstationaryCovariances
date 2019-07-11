@@ -107,19 +107,19 @@ $$ k( \bbx, \bbx^\prime) = C( \, d \, | \, \nu,  \sigma^2 \, ) =\sigma ^{2}{\fra
 
 where $d$ is a Euclidean distance between  $\bbx$ and $\bbx^\prime$,  $\mathcal{K}_{\nu }(\cdot)$ is the modified Bessel function of the second kind of order $\nu$ and $\Gamma(\cdot)$ is the gamma function. $\sigma^2$ is the spatial process variance (sill), $a$ is the multiplicative range parameter, and $\nu$ is the smoothness parameter which controls the mean square differentiability of the process. 
 
-This model can be extended to include geometric anisotropy through the definition of the distance that is a linear scaling and rotation of the coordinates :
+This model can be extended to include geometric anisotropy through the definition of the distance that is a linear scaling and rotation of the coordinates.
 Let 
  $A  =  D^{-1} U^T$ be a  $2\times2$ matrix 
 where $U$ is a rotation matrix parameterized by angle $\theta$
 
 \[ U = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \]
 and
-$$D = \begin{bmatrix} \kappa_x & 0 \\ 0 & \kappa_y \end{bmatrix} $$ 
+$$D = \begin{bmatrix} \xi_x & 0 \\ 0 & \xi_y \end{bmatrix} $$ 
 is a diagonal matrix   scaling the $x$ and $y$ coordinate axes separately applied. Then the pairwise Mahalanobis distances among the observation locations is defined as
 $ d=  \| A\bbs - A\bbs^\prime \| $
-and these distances are then used as input to the Mat\'ern covariance function. With the notation we recover an isotropic covariance function setting  $\theta = 0$
+and these distances are then used as input to the Mat\'ern covariance function. With this notation we recover an isotropic covariance function setting  $\theta = 0$
 and 
-$  \kappa_x = \kappa_y$,  denoting this common scalar as  $\kappa$.
+$  \xi_x = \xi_y$,  denoting this common scalar as  $\xi$.
 
 \subsection{Process convolution construction}
 
@@ -186,12 +186,11 @@ This formulation also shows how to extend the SAR model to incorporate geometric
 \label{SPDE}
  (\kappa^2 - \nabla \cdot H \nabla)^{\nicefrac{\alpha}{2}} u(\mathbf s) = \mathcal{W}(\mathbf s) 
  \end{equation} 
+here $H$ is assumed to be symmetric, positive definite. 
+ To avoid potential ambiguity we also identify  the differential operator above  for two dimensions  in an expanded form as 
+\[  \nabla \cdot H \nabla  \equiv  \frac{\partial^2}{\partial^2 s_1}H_{1,1} +  2 \frac{\partial^2}{\partial s_1 \partial s_2}H_{2,1} + \frac{\partial^2}{\partial^2 s_2}H_{2,2} \]
 
-Let 
-\[ H = \begin{bmatrix} H_{11} & H_{12} \\
-                        H_{12} & H_{22}
-        \end{bmatrix} \]
-then the first-order finite difference discretization of the anisotropic SPDE gives the following stencil for filling the rows of the $B$ matrix.
+Also the first-order finite difference discretization of the anisotropic SPDE gives the following stencil for filling the rows of the $B$ matrix.
 
 \begin{equation}
 \label{e:3}
@@ -206,12 +205,14 @@ then the first-order finite difference discretization of the anisotropic SPDE gi
 \end{equation}
 where $h_x$ and $h_y$ are the grid spacings along the x-axis and y-axis. This is just a reparameterization of the results in Appendix A of \cite{lindgren2011explicit} which facilitates the practical translation of these models. Note that setting $h_x = h_y =1$  $H_{12} = H_{21} =0$ and $H_{11} = H_{22} = 1$ one obtains the first order and isotropic model from (\ref{e:2})
 
-Finally we match the role of $H$ in the SPDE formulation to the anisotropic model for the Matern.   Under the transformation A=RD from ?? let $\bbs^* =  A \bbs $ and $u^*(\bbs^*) = u( A\bbs)$.
+Finally we match the role of $H$ in the SPDE formulation to the anisotropic model for the Matern.   Under the transformation A=UD from ?? let $\bbs^* =  A ^{-1}\bbs $ and $u^*(\bbs^*) = u( A\bbs^*)$.
  Then 
 \[ \nabla u^*( \bbs*) =    \left. A (\nabla u) \right| _{\bbs= A^{-1} \bbs^*}  \]
  and so we have  
  \[ \nabla \cdot \nabla u  =  (A \nabla) \cdot A \nabla u^*  =  (\nabla) \cdot A^T A \nabla u^* . \] 
-Identifying  $H= A^TA$ we conclude that the  field $u*$ as a solution to (\ref{SPDE})   is the result of transforming the coordinates of an isotropic field according to $A$. Note that if $A$ is a pure rotation then $H=I$ and isotropy is preserved. 
+
+ 
+Now identify $H= A^TA$.  If the  field $u*$ is a solution to (\ref{SPDE})  then it can also be interpreted as transforming the coordinates of an isotropic field according to $A^{-1}$. Note that if $A$ is a pure rotation then $H=I$ and isotropy is preserved.  
 
 \subsection{Numerical translation of range parameters between the Mat\'ern and SAR models}
 \label{ss:1}
