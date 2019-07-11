@@ -1,0 +1,187 @@
+\begin{thebibliography}{35}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Alexeeff et~al.(2018)Alexeeff, Nychka, Sain, and
+  Tebaldi}]{alexeeff2018emulating}
+Alexeeff, S.~E., Nychka, D., Sain, S.~R., Tebaldi, C., 2018. Emulating mean
+  patterns and variability of temperature across and within scenarios in
+  anthropogenic climate change experiments. Climatic Change 146~(3-4),
+  319--333.
+
+\bibitem[{Anderes and Stein(2011)}]{anderes2011local}
+Anderes, E.~B., Stein, M.~L., 2011. Local likelihood estimation for
+  nonstationary random fields. Journal of Multivariate Analysis 102~(3),
+  506--520.
+
+\bibitem[{Anderes et~al.(2008)Anderes, Stein, et~al.}]{anderes2008estimating}
+Anderes, E.~B., Stein, M.~L., et~al., 2008. Estimating deformations of
+  isotropic gaussian random fields on the plane. The Annals of Statistics
+  36~(2), 719--741.
+
+\bibitem[{{Computational and Information Systems Laboratory}(2017)}]{cheyenne}
+{Computational and Information Systems Laboratory}, 2017. {Cheyenne: HPE/SGI
+  ICE XA System (University Community Computing)}.
+
+\bibitem[{Cressie and Johannesson(2008)}]{cressie2008fixed}
+Cressie, N., Johannesson, G., 2008. Fixed rank kriging for very large spatial
+  data sets. Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology) 70~(1), 209--226.
+
+\bibitem[{{Douglas Nychka} et~al.(2017){Douglas Nychka}, {Reinhard Furrer},
+  {John Paige}, and {Stephan Sain}}]{fields}
+{Douglas Nychka}, {Reinhard Furrer}, {John Paige}, {Stephan Sain}, 2017.
+  fields: Tools for spatial data. {R package version 9.6}.
+\newline\urlprefix\url{www.image.ucar.edu/~nychka/Fields}
+
+\bibitem[{Fuentes(2002)}]{fuentes2002spectral}
+Fuentes, M., 2002. Spectral methods for nonstationary spatial processes.
+  Biometrika 89~(1), 197--210.
+
+\bibitem[{Fuentes and Smith(2001)}]{fuentes2001new}
+Fuentes, M., Smith, R.~L., 2001. A new class of nonstationary spatial models.
+  Tech. rep., Technical report, North Carolina State University, Raleigh, NC.
+
+\bibitem[{Fuglstad et~al.(2015{\natexlab{a}})Fuglstad, Lindgren, Simpson, and
+  Rue}]{fuglstad2015exploring}
+Fuglstad, G.-A., Lindgren, F., Simpson, D., Rue, H., 2015{\natexlab{a}}.
+  Exploring a new class of non-stationary spatial gaussian random fields with
+  varying local anisotropy. Statistica Sinica, 115--133.
+
+\bibitem[{Fuglstad et~al.(2015{\natexlab{b}})Fuglstad, Simpson, Lindgren, and
+  Rue}]{fuglstad2015does}
+Fuglstad, G.-A., Simpson, D., Lindgren, F., Rue, H., 2015{\natexlab{b}}. Does
+  non-stationary spatial data always require non-stationary random fields?
+  Spatial Statistics 14, 505--531.
+
+\bibitem[{Haas(1990{\natexlab{a}})}]{haas1990kriging}
+Haas, T.~C., 1990{\natexlab{a}}. Kriging and automated variogram modeling
+  within a moving window. Atmospheric Environment. Part A. General Topics
+  24~(7), 1759--1769.
+
+\bibitem[{Haas(1990{\natexlab{b}})}]{haas1990lognormal}
+Haas, T.~C., 1990{\natexlab{b}}. Lognormal and moving window methods of
+  estimating acid deposition. Journal of the American Statistical Association
+  85~(412), 950--963.
+
+\bibitem[{Heaton et~al.(2017)Heaton, Datta, Finley, Furrer, Guhaniyogi, Gerber,
+  Gramacy, Hammerling, Katzfuss, Lindgren, et~al.}]{heaton2017methods}
+Heaton, M.~J., Datta, A., Finley, A., Furrer, R., Guhaniyogi, R., Gerber, F.,
+  Gramacy, R.~B., Hammerling, D., Katzfuss, M., Lindgren, F., et~al., 2017.
+  Methods for analyzing large spatial data: A review and comparison. arXiv
+  preprint arXiv:1710.05013.
+
+\bibitem[{Higdon(1998)}]{higdon1998process}
+Higdon, D., 1998. A process-convolution approach to modelling temperatures in
+  the north atlantic ocean. Environmental and Ecological Statistics 5~(2),
+  173--190.
+
+\bibitem[{Higdon(2002)}]{higdon2002space}
+Higdon, D., 2002. Space and space-time modeling using process convolutions. In:
+  Quantitative methods for current environmental issues. Springer, pp. 37--56.
+
+\bibitem[{Higdon et~al.(1999)Higdon, Swall, and Kern}]{higdon1999non}
+Higdon, D., Swall, J., Kern, J., 1999. Non-stationary spatial modeling.
+  Bayesian statistics 6~(1), 761--768.
+
+\bibitem[{Katzfuss and Cressie(2011)}]{katzfuss2011spatio}
+Katzfuss, M., Cressie, N., 2011. Spatio-temporal smoothing and em estimation
+  for massive remote-sensing data sets. Journal of Time Series Analysis 32~(4),
+  430--446.
+
+\bibitem[{Kaufman and Shaby(2013)}]{kaufman2013role}
+Kaufman, C., Shaby, B., 2013. The role of the range parameter for estimation
+  and prediction in geostatistics. Biometrika 100~(2), 473--484.
+
+\bibitem[{Kay et~al.(2015)Kay, Deser, Phillips, Mai, Hannay, Strand, Arblaster,
+  Bates, Danabasoglu, Edwards, et~al.}]{kay2015community}
+Kay, J., Deser, C., Phillips, A., Mai, A., Hannay, C., Strand, G., Arblaster,
+  J., Bates, S., Danabasoglu, G., Edwards, J., et~al., 2015. {The Community
+  Earth System Model (CESM) large ensemble project: A community resource for
+  studying climate change in the presence of internal climate variability}.
+  Bulletin of the American Meteorological Society 96~(8), 1333--1349.
+
+\bibitem[{Lindgren and Rue(2007)}]{lindgren2007explicit}
+Lindgren, F., Rue, H., 2007. Explicit construction of gmrf approximations to
+  generalised mat{\'e}rn fields on irregular grids. Preprints in Mathematical
+  Sciences 5.
+
+\bibitem[{Lindgren et~al.(2011)Lindgren, Rue, and
+  Lindstr{\"o}m}]{lindgren2011explicit}
+Lindgren, F., Rue, H., Lindstr{\"o}m, J., 2011. An explicit link between
+  gaussian fields and gaussian markov random fields: the stochastic partial
+  differential equation approach. Journal of the Royal Statistical Society:
+  Series B (Statistical Methodology) 73~(4), 423--498.
+
+\bibitem[{Murdoch and Chow(2018)}]{ellipse}
+Murdoch, D., Chow, E.~D., 2018. ellipse: Functions for Drawing Ellipses and
+  Ellipse-Like Confidence Regions. {R package version 0.4.1}.
+\newline\urlprefix\url{https://CRAN.R-project.org/package=ellipse}
+
+\bibitem[{Nychka et~al.(2015)Nychka, Bandyopadhyay, Hammerling, Lindgren, and
+  Sain}]{nychka2015multiresolution}
+Nychka, D., Bandyopadhyay, S., Hammerling, D., Lindgren, F., Sain, S., 2015. A
+  multiresolution gaussian process model for the analysis of large spatial
+  datasets. Journal of Computational and Graphical Statistics 24~(2), 579--599.
+
+\bibitem[{Nychka et~al.(2018)Nychka, Hammerling, Krock, and
+  Wiens}]{nychka2018modeling}
+Nychka, D., Hammerling, D., Krock, M., Wiens, A., 2018. Modeling and emulation
+  of nonstationary gaussian fields. Spatial Statistics.
+
+\bibitem[{Nychka et~al.(2002)Nychka, Wikle, and
+  Royle}]{nychka2002multiresolution}
+Nychka, D., Wikle, C., Royle, J.~A., 2002. Multiresolution models for
+  nonstationary spatial covariance functions. Statistical Modelling 2~(4),
+  315--331.
+
+\bibitem[{Paciorek and Schervish(2004)}]{paciorek2004nonstationary}
+Paciorek, C.~J., Schervish, M.~J., 2004. Nonstationary covariance functions for
+  gaussian process regression. In: Advances in neural information processing
+  systems. pp. 273--280.
+
+\bibitem[{{R Core Team}(2018)}]{Rcore}
+{R Core Team}, 2018. {R: A Language and Environment for Statistical Computing}.
+  {R Foundation for Statistical Computing}, Vienna, Austria.
+\newline\urlprefix\url{https://www.R-project.org/}
+
+\bibitem[{Risser(2016)}]{risser2016nonstationary}
+Risser, M.~D., 2016. Nonstationary spatial modeling, with emphasis on process
+  convolution and covariate-driven approaches. arXiv preprint arXiv:1610.02447.
+
+\bibitem[{Risser and Calder(2015)}]{risser2015local}
+Risser, M.~D., Calder, C.~A., 2015. Local likelihood estimation for covariance
+  functions with spatially-varying parameters: the convospat package for r.
+  arXiv preprint arXiv:1507.08613.
+
+\bibitem[{Rue and Held(2005)}]{rue2005gaussian}
+Rue, H., Held, L., 2005. Gaussian Markov random fields: theory and
+  applications. CRC press.
+
+\bibitem[{Sampson and Guttorp(1992)}]{sampsonguttorp}
+Sampson, P.~D., Guttorp, P., 1992. Nonparametric estimation of nonstationary
+  spatial covariance structure. Journal of the American Statistical Association
+  87~(417), 108--119.
+\newline\urlprefix\url{http://www.jstor.org/stable/2290458}
+
+\bibitem[{Simpson et~al.(2012)Simpson, Lindgren, and Rue}]{simpson2012think}
+Simpson, D., Lindgren, F., Rue, H., 2012. Think continuous: Markovian gaussian
+  models in spatial statistics. Spatial Statistics 1, 16--29.
+
+\bibitem[{Ver~Hoef et~al.(2004)Ver~Hoef, Cressie, and Barry}]{ver2004flexible}
+Ver~Hoef, J.~M., Cressie, N., Barry, R.~P., 2004. Flexible spatial models for
+  kriging and cokriging using moving averages and the fast fourier transform
+  (fft). Journal of Computational and Graphical Statistics 13~(2), 265--282.
+
+\bibitem[{Yu(2002)}]{yu2002rmpi}
+Yu, H., 2002. {Rmpi: parallel statistical computing in R}. {R News} 2~(2),
+  10--14.
+
+\bibitem[{Zhu and Wu(2010)}]{zhu2010estimation}
+Zhu, Z., Wu, Y., 2010. Estimation and prediction of a class of
+  convolution-based spatial nonstationary models for large spatial data.
+  Journal of Computational and Graphical Statistics 19~(1), 74--95.
+
+\end{thebibliography}

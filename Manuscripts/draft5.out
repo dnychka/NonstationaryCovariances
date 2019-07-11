@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Nonstationary covariance models}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{The Mat\351rn covariance model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Process convolution construction}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{The SAR model}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Mat\351rn-SAR model approximation}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Numerical translation of range parameters between the Mat\351rn and SAR models}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{The nonstationary SAR model}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Local moving window likelihood estimation}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Local estimation strategy}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Local estimation accuracy of the Mat\351rn range parameter}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Data analysis}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{NCAR LENS Data}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Estimation}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Using local estimates}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 16
