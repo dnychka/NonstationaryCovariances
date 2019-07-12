@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  10 JUL 2019 21:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 JUL 2019 13:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -388,29 +388,40 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4] [5]
 [6] [7] [8]
-<"plots/MaternSARtranslation5".png, id=204, 1432.35126pt x 532.99126pt>
+<"plots/MaternSARtranslation5".png, id=203, 1432.35126pt x 532.99126pt>
 File: "plots/MaternSARtranslation5".png Graphic file (type png)
 <use "plots/MaternSARtranslation5".png>
 Package pdftex.def Info: "plots/MaternSARtranslation5".png  used on input line 
-242.
+243.
 (pdftex.def)             Requested size: 444.0243pt x 165.22559pt.
- [9 <./plots/MaternSARtranslation5.png>] [10] [11] [12] [13]
-[14] [15] (./draftDWN.bbl [16] [17])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 424.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 424.
- (./draftDWN.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 424.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 424.
+ [9 <./plots/MaternSARtranslation5.png>] [10] [11] [12]
+<"plots/LocalTPS".png, id=232, 1433.355pt x 770.88pt>
+File: "plots/LocalTPS".png Graphic file (type png)
+<use "plots/LocalTPS".png>
+Package pdftex.def Info: "plots/LocalTPS".png  used on input line 317.
+(pdftex.def)             Requested size: 358.33788pt x 192.71953pt.
+
+Overfull \hbox (13.33788pt too wide) in paragraph at lines 317--318
+ [][] 
+ []
+
+[13 <./plots/LocalTPS.png>] [14] [15] (./draftDWN.bbl [16] [17] [18])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 421.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 421.
+
+(./draftDWN.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 421.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 421.
 Package rerunfilecheck Info: File `draftDWN.out' has not changed.
-(rerunfilecheck)             Checksum: F3744650223ABAB7479A829781E98133;1163.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 424.
+(rerunfilecheck)             Checksum: ACEEC1760EB2569081480109B0D8C007;1157.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 421.
  ) 
 Here is how much of TeX's memory you used:
- 7051 strings out of 492649
- 99694 string characters out of 6129622
- 197685 words of memory out of 5000000
- 10744 multiletter control sequences out of 15000+600000
+ 7058 strings out of 492649
+ 99815 string characters out of 6129622
+ 197683 words of memory out of 5000000
+ 10749 multiletter control sequences out of 15000+600000
  14848 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,9n,30p,1274b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -443,10 +454,10 @@ s/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/urw/zapfding/uzdr.pfb>
-Output written on draftDWN.pdf (18 pages, 843420 bytes).
+Output written on draftDWN.pdf (19 pages, 2098363 bytes).
 PDF statistics:
- 414 PDF objects out of 1000 (max. 8388607)
- 359 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 420 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
 

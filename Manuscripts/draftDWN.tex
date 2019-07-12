@@ -115,16 +115,18 @@ where $U$ is a rotation matrix parameterized by angle $\theta$
 \[ U = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \]
 and
 $$D = \begin{bmatrix} \xi_x & 0 \\ 0 & \xi_y \end{bmatrix} $$ 
-is a diagonal matrix   scaling the $x$ and $y$ coordinate axes separately applied. Then the pairwise Mahalanobis distances among the observation locations is defined as
+is a diagonal matrix  scaling the $x$ and $y$ coordinate axes separately . Then the pairwise Mahalanobis distances among the observation locations is defined as
 $ d=  \| A\bbs - A\bbs^\prime \| $
-and these distances are then used as input to the Mat\'ern covariance function. With this notation we recover an isotropic covariance function setting  $\theta = 0$
-and 
-$  \xi_x = \xi_y$,  denoting this common scalar as  $\xi$.
+and these distances are then used as the argument to  the Mat\'ern covariance function. 
+The interpretation is that if one transforms the coordinates according the linear transform $A$ then the resulting field will be isotropic. 
+% Also Wwth this notation we recover an isotropic covariance function setting  $\theta = 0$
+%and 
+%$  \xi_x = \xi_y$,  denoting this common scalar as  $\xi$.  
 
 \subsection{Process convolution construction}
 
-Process convolution is a useful method for constructing valid nonstationary GPs  using a  spatially varying kernels. 
-  Let $\Psi( \bbu, \bbv)$  be a  kernel with 
+Process convolution is a useful method for constructing valid nonstationary GPs  using a  spatially varying kernel. 
+  Let $\Psi( \bbu, \bbv)$  be a  kernel such that 
    \[ \int _ {G \times G} | \Psi (u,v) |^2 d\bbu d\bbv  < \infty \]
    then we have the process representation 
 $$ Y(\mathbf s) = \int_{G} \Psi(\mathbf s ,\mathbf u) \, \mathrm d W(\mathbf u ) $$ where $W$ is d-variate Brownian motion. It follows that $Y$ has covariance function 
@@ -180,15 +182,15 @@ where $\alpha = \nu + \frac{d}{2}$, $\kappa > 0, \nu > 0$, $\mathbf s \in \Omega
 
 Similar results can be obtained for different smoothness parameters $\nu$ by convolving the finite difference stencil in (\ref{e:2}) with itself $\nu$ times, as detailed in the previous section for $\nu=1$ and $\nu=2$.
 
-This formulation also shows how to extend the SAR model to incorporate geometric anisotropy by including an anisotropy matrix, $H$, in the Laplacian in the pseudodifferential operator.
+ The SAR model can also be extended to incorporate geometric anisotropy. Let $H$  denote an anisotropy matrix and modify the  Laplacian in the pseudodifferential operator.
 
 \begin{equation}
 \label{SPDE}
  (\kappa^2 - \nabla \cdot H \nabla)^{\nicefrac{\alpha}{2}} u(\mathbf s) = \mathcal{W}(\mathbf s) 
  \end{equation} 
 here $H$ is assumed to be symmetric, positive definite. 
- To avoid potential ambiguity we also identify  the differential operator above  for two dimensions  in an expanded form as 
-\[  \nabla \cdot H \nabla  \equiv  \frac{\partial^2}{\partial^2 s_1}H_{1,1} +  2 \frac{\partial^2}{\partial s_1 \partial s_2}H_{2,1} + \frac{\partial^2}{\partial^2 s_2}H_{2,2} \]
+ To avoid potential ambiguity we also identify  the Laplacian  operator above for two dimensions  in an expanded form as 
+\[  \nabla \cdot H \nabla  \equiv  H_{1,1} \frac{\partial^2}{\partial^2 s_1} +  2 H_{2,1} \frac{\partial^2}{\partial s_1 \partial s_2} + H_{2,2} \frac{\partial^2}{\partial^2 s_2} \]
 
 Also the first-order finite difference discretization of the anisotropic SPDE gives the following stencil for filling the rows of the $B$ matrix.
 
@@ -205,21 +207,20 @@ Also the first-order finite difference discretization of the anisotropic SPDE gi
 \end{equation}
 where $h_x$ and $h_y$ are the grid spacings along the x-axis and y-axis. This is just a reparameterization of the results in Appendix A of \cite{lindgren2011explicit} which facilitates the practical translation of these models. Note that setting $h_x = h_y =1$  $H_{12} = H_{21} =0$ and $H_{11} = H_{22} = 1$ one obtains the first order and isotropic model from (\ref{e:2})
 
-Finally we match the role of $H$ in the SPDE formulation to the anisotropic model for the Matern.   Under the transformation A=UD from ?? let $\bbs^* =  A ^{-1}\bbs $ and $u^*(\bbs^*) = u( A\bbs^*)$.
- Then 
-\[ \nabla u^*( \bbs*) =    \left. A (\nabla u) \right| _{\bbs= A^{-1} \bbs^*}  \]
+Finally we connect  the role of $H$ in the SPDE formulation to the anisotropic model for the Matern.   Under the linear transformation $A=D^{-1}U^T$ from Section 2,  let $\bbs^* =  A^{-1}  \bbs $, let $u$ be an isotropic field  from the SPDE with Laplacian, $\nabla \cdot \nabla$,  and  set $u^*(\bbs^*) = u(A^{-1} \bbs^*)$. 
+ Then from elementary properties of the gradient 
+\[ \nabla u^*( A \bbs*) =    \left. A^{-1} (\nabla u) \right| _{\bbs= A \bbs^*}  \]
  and so we have  
- \[ \nabla \cdot \nabla u  =  (A \nabla) \cdot A \nabla u^*  =  (\nabla) \cdot A^T A \nabla u^* . \] 
-
- 
-Now identify $H= A^TA$.  If the  field $u*$ is a solution to (\ref{SPDE})  then it can also be interpreted as transforming the coordinates of an isotropic field according to $A^{-1}$. Note that if $A$ is a pure rotation then $H=I$ and isotropy is preserved.  
+ \[ \nabla \cdot \nabla u  =  (A ^{-1}\nabla) \cdot A^{-1} \nabla u^*  =  (\nabla) \cdot A^{-T} A^{-1} \nabla u^* . \] 
+ From this expression we identify $H= A^{-T}A^{-1}$.  From Section 2 if $u$ is an isotropic field then 
+ $u^*$ will be anisotropic with coordinates transformed by $A^{-1}$. Moreover, $u^*$ will also be the solution to the SPDE with  $H= A^{-T}A^{-1}$. This connection provides guidance how to interpret $H$.   Note that if $A$ is a pure rotation then $H=I$ and isotropy is preserved.  
 
 \subsection{Numerical translation of range parameters between the Mat\'ern and SAR models}
 \label{ss:1}
 
 The connection between the anisotropic Matern family and a SAR relies on the approximation of a discretized Laplacian operator with finite differences of the fields on a lattice.  To provide an accurate statistical model is important to quantify this approximation and improve its calibration over the limiting expression suggested in \cite{lindgren2011explicit}. In this section we provide numerical evidence to show that an accurte calibration is possible if restricted to ranges of the covariance parameters. 
 
-The  computational setup as follows. Given a Mat\'ern range parameter $a$, we estimate the value of  $\kappa$ in the SAR model which gives the best approximation to the Mat\'ern correlation function.  We conducted this experiment with the smoothness of the Mat\'ern model fixed at $\nu=1$ and $\nu=2$, and with unit marginal variance for all models. The first step is to fix the Mat\'ern range parameter and evaluate a Mat\'ern correlation matrix on the grid. Then, we perform an optimization over $\kappa$ by encoding it into the SAR precision matrix using (\ref{e:2}), inverting and normalizing it to give the implied SAR correlation matrix, and minimizing the distance between these matrices by some measure.
+The  computational setup is as follows. Given a Mat\'ern range parameter $a$, we estimate the value of  $\kappa$ in the SAR model which gives the best approximation to the Mat\'ern correlation function.  We conducted this experiment with the smoothness of the Mat\'ern model fixed at $\nu=1$ and $\nu=2$, and with unit marginal variance for all models. The first step is to fix the Mat\'ern range parameter and evaluate a Mat\'ern correlation matrix on the grid. Then, we perform an optimization over $\kappa$ by encoding it into the SAR precision matrix using (\ref{e:2}), inverting and normalizing it to give the implied SAR correlation matrix, and minimizing the distance between these matrices by some measure.
 
 It is known that the SAR covariance model suffers from edge effects. To avoid the interference of edge effects in this optimization , we quantify the difference between the two correlation matrices by only comparing the correlation of the lattice point  in the center of the grid for both models. 
 For an $N \times N$ lattice of locations, with $N$ odd,  let  $\sigma_a$ denote the  vector of correlations between the center point in this lattice  and all other locations based on the Matern covariance function.  Let  $\sigma_\kappa$ be the same  correlation vector for the SAR model with parameter $\kappa$.  We then find \[ min_{\kappa} \| \sigma_a - \sigma_\kappa \| \]
@@ -261,68 +262,64 @@ The anisotropic parameter translation results are shown in panels (c) and (d) of
 
 \subsection{The nonstationary SAR model}
 
-The nonstationary SAR model can be constructed by allowing the parameters $\kappa, H$, and $\sigma^2$ in the generating SPDE to vary over space. The SPDE becomes
+The nonstationary SAR model can be constructed by allowing the parameters $\kappa, H$, and $\sigma^2$ in the generating SPDE to vary over space. 
+Let
+ \[
+  \cL(\bbs) = H_{1,1}(\bbs) \frac{\partial^2}{\partial s_1^2} +  2 H_{2,1}(\bbs)\frac{\partial^2}{\partial s_1 \partial s_2} + H_{2,2}(\bbs) \frac{\partial^2}{\partial s_2^2}
+\]
+The SPDE becomes
+$$ (\kappa^2(\mathbf s) - \cL(\bbs) )^{\nicefrac{\alpha}{2}} u(\mathbf s) = \mathcal{W}(\mathbf s) $$
+where $\kappa(\mathbf s) > 0$, $\mathcal{W}(s) \sim \operatorname{WN}(0, \sigma^2(\mathbf s))$, and $\sigma^2(\mathbf s) > 0$.  Further we speciallize to a spatially varying linear transformation of the coordinates, $A(\bbs)$, and so  $H(\bbs) = A^{-T} (\bbs) A^{-1}(\bbs)$. Note that $A(\bbs)$ varying in space is equivalent to specifying spatial field for $\theta$, $\xi_x$ and $\xi_y$ in $U$ and $D$. 
 
-$$ (\kappa^2(\mathbf s) - \nabla \cdot H(\mathbf s) \nabla)^{\nicefrac{\alpha}{2}} x(\mathbf s) = \mathcal{W}(\mathbf s) $$
-where $\kappa(\mathbf s) > 0$, $\mathcal{W}(s) \sim \operatorname{WN}(0, \sigma^2(\mathbf s))$, and $\sigma^2(\mathbf s) > 0$. Discretizing this equation results in a valid GMRF, but it is unclear what covariance function the SAR approximates in this case.
+Discretizing this equation results in a valid GMRF that is nonstationary. In particular the autoregressive $B$ matrix  from Section 2.3 could have  different elements in each row based on the variation in $H(\bbs)$. However, $B$ will still be a sparse matrix, $Q$ will be positive definite and one can connect the matrix  $B^{-1} $ as  a discretization of a kernel $\Psi$ to the lattice points and the covariance matrix,   $B^{-1}B^{-T}$ as a discrete approximation to the integral in (\ref{covarianceConvolution}). 
 
-In practice, one can use the discretization in (\ref{e:3}) to fill each row of the precision matrix individually, substituting the values for $\kappa$ and $H$ corresponding to that row's observation location. This gives a sparse banded precision matrix $Q$ with nonconstant bands. The covariance matrix implied by this precision matrix is nonstationary, and the sparse structure of the precision matrix can still be exploited as in the stationary case.
-
-The process variance can also be allowed to vary in the same way as with the nonstationary Mat\'ern model, but this must be done balancing the effects of $\kappa$ and $H$. First $\kappa(\mathbf s)$ and $H(\mathbf s)$ must be encoded into the precision matrix. The implied marginal variances can then be computed for each location from the inverse of the precision matrix, and these variances can be adjusted to match the estimated marginal variance. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The process variance can also be allowed to vary in the same way as with the nonstationary Mat\'ern model, but this must be done balancing the identifiability of $\kappa$ and $H$ and the fact that edge effects may introduce spurious variation in the  GMRF variance. Our approach is to first construct the precision matrix and then use sparse matrix methods to solve for the diagonal elements of the covariance matrix. The rows of $B$ are then weighted so that  this new version gives a GMRF with constant marginal variance. With this normalization of the SAR model $\sigma(\bbs)^2$ can be introduced to capture explicit spatial variation in the process marginal variance. 
 
 \section{Local moving window likelihood estimation}
-
-
 \subsection{Local estimation strategy}
 
-Estimating a nonstationarity model can be challenging due to the increased number of covariance parameters. When enough data is available, however, local estimation can give insight into what type of nonstationarity is present.
+Estimating a nonstationarity model can be challenging due to the increased number of covariance parameters. When enough data is available, however, local estimation can give insight into what type of nonstationarity is present. Moreover, we show in this section that a modest  number of spatial replicate fields results in stable local covariance estimates. 
 
-Local estimation is usually accompanied by the assumption of approximate local stationarity. For this work, we define local stationarity and the local likelihood estimation technique for a Gaussian process with stationary Mat\'ern covariance as follows. First, divide the region of interest $\mathcal{D}$ into $M$ possibly overlapping subregions $\mathcal{D}_1, \mathcal{D}_2, \cdots, \mathcal{D}_M$. Then under the assumption of approximate local stationarity, we can model the data $\mathbf y_i$ within the subregion $\mathcal{D}_i$ using a Gaussian process $Y_i$ defined using the following specification:
+Local estimation is usually accompanied by the assumption of approximate local stationarity. For this work, we define local stationarity and the local likelihood estimation technique for a Gaussian process with stationary Mat\'ern covariance as follows. First, divide the region of interest $\mathcal{D}$ into $M$ possibly overlapping subregions, or {\it windows},  $\mathcal{D}_1, \mathcal{D}_2, \cdots, \mathcal{D}_M$. Then under the assumption of approximate local stationarity, we can model the data $\mathbf y_i$ within the subregion $\mathcal{D}_i$ using a Gaussian process $Y_i$ defined using the following specification:
 
 \begin{equation}
 \label{e:4}
-Y_i(\mathbf s) = \mu_i(\mathbf s) + Z_i (\mathbf s) + \epsilon_i (\mathbf s)    
+\bby_i(\mathbf s) = \mu_i(\mathbf s) + Z_i (\mathbf s) + \epsilon_i (\mathbf s)    
 \end{equation}
-where $\epsilon_i \sim \operatorname{WN}(0, \tau_i^2)$ is spatial white noise and $Z_i \sim \operatorname{GP}( \mathbf 0, F_i)$ is a spatially correlated Gaussian process with covariance function $F_i(\nu, a_i, \sigma_i^2)$ parameterized by a stationary Mat\'ern covariance function. Let $G_i = F_i + \tau_i^2$. The Gaussian process likelihood of $p$ replicates $\mathbf y_i$ which are flattened into a vector is
-
+where $\epsilon_i \sim \operatorname{WN}(0, \tau_i^2)$ is spatial white noise and $Z_i \sim \operatorname{GP}( \mathbf 0, F_i)$ is a spatially correlated Gaussian process with covariance matrix $F_i$ parameterized by an anisotropic but  stationary Mat\'ern covariance function. Let $G_i = F_i + \tau_i^2$. The approximate Gaussian process likelihood, L,  based on  $p$ replicates $\mathbf y_i$ 
 \begin{equation}
 \label{e:5}
-     \log L = - \frac{n p}{2} \log 2 \pi + \frac{1}{2} \log | G \ |^{-1} - \frac{1}{2}(\mathbf y_i - \boldsymbol \mu_i )^T G^{-1} (\mathbf y_i - \boldsymbol \mu_i)
+     \log L(\nu, \bxi_i, \theta_i,  \sigma_i)  = - \frac{n p}{2} \log 2 \pi + \frac{1}{2} \log | G \ |^{-1} - \sum_{i=1}^p \frac{1}{2}(\mathbf y_i - \boldsymbol \mu_i )^T G^{-1} (\mathbf y_i - \boldsymbol \mu_i)
 \end{equation}
-where $\boldsymbol{\mu}_i$ is the mean function $\mu_i$ evaluated at the locations of $\mathbf y_i$, and $\mathbf G$ is the covariance matrix for $\mathbf y_i$ which is block diagonal with blocks $G_i$. Without loss of generality assume $\boldsymbol \mu _i = \mathbf 0 \; \forall i$.
+where $\boldsymbol{\mu}_i$ is the mean function $\mu_i$ evaluated at the locations of $\mathbf y_i$, and $\mathbf G$ is the covariance matrix for $\mathbf y_i$ and depends implicitly on the parameters of enumerated in the likelihood.  
 
-After partitioning the data, each local likelihood estimation is an embarrassingly parallel task, which makes it a viable strategy for large data sets with the help of many processors. If desired, one can assign the location of the center of the subregion $\mathcal{D}_i$ to the estimated parameters $a_i, \sigma_i^2, \tau_i^2,$, which effectively treats the MLEs as spatial fields that can be inspected and smoothed if necessary.
+After partitioning the data, finding each local likelihood estimate is an embarrassingly parallel task,
+ which makes it a viable strategy for large data sets by using many computational cores. In fact in our application the parallelization is efficient to the point that we take  the subregions to be an exhaustive set of moving windows centered at every grid point. 
+We assign these estimated parameters to  location of the center of the subregion $\mathcal{D}_i$ and
+after translating into the SAR parameterization these become the row of the SAR, B, matrix at this location.  This  assignment is, of course, predicated on the assumption that over the region there is little variation in these parameters. This issue will be discussed in more detail in the last section. 
 
+Given that the SAR model also gives a specification of the covariance it may seem indirect that the local estimates focus on the Matern model and then the estimates are transformed into the SAR representation. An alternative would be to estimate the SAR version directly from local likelihood windowing. There are several  reasons for two steps. Fitting the covariance model directly avoids any boundary effects that would come about by applying the SAR to a small window. Also, the local fitting is by definition small in size and sparse matrix methods associated with the SAR will not be as efficient as the direct ML estimation using dense covariance matrices.  Finally, the Matern parameters are easier to interpret and will be simpler to model  in a hierarchical statistical framework. 
 
-\subsection{Local estimation accuracy of the Mat\'ern range parameter}
+\subsection{Estimation accuracy of the Mat\'ern range parameter}
 \label{ss:2}
+A practical issue for a local approach, especially in the context of determining covariance parameters  is if the number of replicates and the size of the window are adequate for robust estimation of  parameters. 
+Although choosing a data adaptive window is beyond it is important to identify the conditions under which parameter estimates will be accurate.  Also as a side issue it is useful to understand the benefits of replicate fields in estimating a covariance model. In particular the hope is the replication makes it possible to estimate correlation ranges that are much larger than the local window size. 
+Here we  focus on the Mat\'ern covariance family in estimation because of its prevalence, flexibility, interpretability,  and the useful theoretical guidance  concerning estimation of the range and variance parameters \cite{kaufman2013role}. 
 
-The natural questions when using local estimation techniques are how large of a window should be used and how many replicates of the spatial data are needed to give accurate results. To answer these questions, we designed a computer experiment testing whether covariance parameters can be accurately estimated when using a subset of data with independent replicates. We focus on the Mat\'ern covariance function in estimation because of its prevalence, flexibility, interpretability,  and the nice theoretical results that exist concerning estimation of the range and variance parameters \cite{kaufman2013role}. Furthermore, by defining the covariance matrix, the model isn't plagued by the edge effects of the SAR model. The goal is to answer how large of a correlation range can be estimated and to what accuracy, given a number of replicates generated with this range and given a certain window size. Using the generated replicates, we numerically find the MLE for the range and record the error of the estimate. 
+The Monte Carlo experiment is organized with four factors: window size ranging between 
+ $5 \times 5$ grid and a $33 \times 33$ grid, a Mat\'ern range parameter being multiples of $1,2,3,4$ times the window size, 
+ the  Mat\'ern smoothness  parameter taking on values $1$ and $2$  and  the number of replicates ranging bettween 5 and 60.  Thus the full factorial design is $29 \times 4 \times 2 \times 56$. 
+For each combination statistics were assembled from 100 independent MLE for the range parameter. 
+ The  main quantity of interest is the percent error of the estimate and these surfaces as a function of replicate number and window size are summarized in Figure \ref{f:2}.  In this experiment the range parameter was varied based on the window size and this  may seem unusual.  However, the motivation was to address the computational requirements of the problem. Given a computational budget to acommodate windows of a specific size, what size range parameter can be accurately estimated? Note that with constraints on the windows size accuracy can also be improved by increasing the number of replicates. 
 
-The design of the computer experiment was chosen for practical considerations rather than a traditional design like Latin hypercube sampling. We chose to examine data generated from models with a Mat\'ern range that is one, two, three, and four times the size of the estimation window used. Window sizes were tested between a $5 \times 5$ grid and a $33 \times 33$ grid, and we used data sets with the number of replicates between 5 and 60. Thus, we have four grids (window size $\times$ number of replicates) based on how large the range is compared to the window size. For each combination of these three factors, we ran the optimization to find the MLE of the range parameter using the generated replicates. The optimization was repeated 100 times using different replicates to mitigate the effect of the random samples in the estimation error. This experiment was conducted twice with Mat\'ern smoothnesses $\nu =1, 2$. The quantity of interest is the percent error of the estimate. For each of the $4\times2$ grids, the 100 observations of percent error per location were used to fit thin plate spline models and predict the surfaces shown in Figure (\ref{f:2}) (using \texttt{fields::Tps} in \texttt{R}). 
-
-\begin{figure}
+\begin{figure}[h]
     \centering
-    %%%% \includegraphics[scale=0.25]{"plots/LocalTPS".png}
+   \includegraphics[scale=0.25]{"plots/LocalTPS".png}
     \caption{Each panel displays the absolute percent error from estimating the Mat\'ern range parameter given a certain number of replicates and a window size (size of grid). Fixed Mat\'ern range parameters one, two, three, and four times the size of the grid were tested, faceted in panels (a)-(d). Thin plate splines were fit using the 100 repeated optimization results, performed at each grid location. The splines were used to predict the surfaces shown. The top row corresponds to $\nu=1$ and bottom to $\nu=2$. Note that white indicates $>50\%$ error}
     \label{f:2}
 \end{figure}
 
-The thin plate spline surfaces can be used as guidelines to decide how many replicates are necessary and what window size should be used to achieve a specific estimation error tolerance, given something is known about the size of the range to be estimated. These results are encouraging: e.g. only a small number of replicates ($>10$) are needed with a window size of $>10$ to estimate a range of 10. In the extreme case, a Mat\'ern range four times the size of the window might be estimated to within $10\%$ error if 30 replicates are available and using a window size of 10 or greater. Using these guidelines, we can be more confident that local moving window likelihood estimation is a viable technique if enough data is used.
+Thses surfaces can be used as guidelines to decide how many replicates are necessary and what window size should be used to achieve a specific estimation error tolerance, given something is known about the size of the range to be estimated. These results are encouraging: e.g. only a small number of replicates ($>10$) are needed with a window size of $>10$ to estimate a range of 10. In the extreme case, a Mat\'ern range four times the size of the window might be estimated to within $10\%$ error if 30 replicates are available and using a window size of 10 or greater. Using these guidelines, we can be more confident that local moving window likelihood estimation is a viable technique if enough data is used.
 
 
 
@@ -340,7 +337,7 @@ The thin plate spline surfaces can be used as guidelines to decide how many repl
 
 \section{Data analysis}
 
-In this section, we implement the methods studied in this paper to analyze a data set clearly exhibiting a nonstationary covariance structure. We first use moving window likelihood estimation to infer spatially varying Mat\'ern parameters. We then translate these into their local SAR covariance parameter equivalents, and we encode the spatially varying SAR parameters into the nonstationary SAR covariance model. This model makes it possible to visualize the resulting nonstationary covariance matrix and efficiently simulate new realizations.
+In this section, we implement the methods studied in this paper to analyze a data set where it is important to account for nonstationary covariance structure. We first use moving window likelihood estimation to infer spatially varying Mat\'ern parameters. We then translate these into their local SAR covariance parameter equivalents, and we encode the spatially varying SAR parameters into the nonstationary SAR covariance model. This model makes it possible to visualize the resulting nonstationary covariance matrix and efficiently simulate new realizations.
 
 \subsection{NCAR LENS Data}
 
