@@ -9,8 +9,7 @@
 \BOOKMARK [1][-]{section.3}{Local moving window likelihood estimation}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{Local estimation strategy}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.2}{Estimation accuracy of the Mat\351rn range parameter}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Data analysis}{}% 12
-\BOOKMARK [2][-]{subsection.4.1}{NCAR LENS Data}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.2}{Estimation}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.3}{Using local estimates}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 16
+\BOOKMARK [1][-]{section.4}{NCAR LENS Data}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Covariance parameter estimates}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Model checking}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 15

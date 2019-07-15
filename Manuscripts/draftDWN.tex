@@ -1,6 +1,7 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
+\usepackage{verbatim}
 \modulolinenumbers[5]
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -309,7 +310,7 @@ Here we  focus on the Mat\'ern covariance family in estimation because of its pr
 The Monte Carlo experiment is organized with four factors: window size ranging between 
  $5 \times 5$ grid and a $33 \times 33$ grid, a Mat\'ern range parameter being multiples of $1,2,3,4$ times the window size, 
  the  Mat\'ern smoothness  parameter taking on values $1$ and $2$  and  the number of replicates ranging bettween 5 and 60.  Thus the full factorial design is $29 \times 4 \times 2 \times 56$. 
-For each combination statistics were assembled from 100 independent MLE for the range parameter. 
+For each combination statistics were assembled from 100 independent MLEs for the range parameter. 
  The  main quantity of interest is the percent error of the estimate and these surfaces as a function of replicate number and window size are summarized in Figure \ref{f:2}.  In this experiment the range parameter was varied based on the window size and this  may seem unusual.  However, the motivation was to address the computational requirements of the problem. Given a computational budget to acommodate windows of a specific size, what size range parameter can be accurately estimated? Note that with constraints on the windows size accuracy can also be improved by increasing the number of replicates. 
 
 \begin{figure}[h]
@@ -319,63 +320,57 @@ For each combination statistics were assembled from 100 independent MLE for the 
     \label{f:2}
 \end{figure}
 
-Thses surfaces can be used as guidelines to decide how many replicates are necessary and what window size should be used to achieve a specific estimation error tolerance, given something is known about the size of the range to be estimated. These results are encouraging: e.g. only a small number of replicates ($>10$) are needed with a window size of $>10$ to estimate a range of 10. In the extreme case, a Mat\'ern range four times the size of the window might be estimated to within $10\%$ error if 30 replicates are available and using a window size of 10 or greater. Using these guidelines, we can be more confident that local moving window likelihood estimation is a viable technique if enough data is used.
+These surfaces can be used as guidelines to decide how many replicates are necessary and what window size should be used to achieve a specific estimation error tolerance, given something is known about the size of the range to be estimated. The results are encouraging: e.g. only a small number of replicates ($>10$) are needed with a window size of $>10$ to estimate a range of 10. In the extreme case, a Mat\'ern range four times the size of the window might be estimated to within $10\%$ error if 30 replicates are available and using a window size of 10 or greater. Using these guidelines, we can be more confident that local moving window likelihood estimation is a viable technique if enough data is used.
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+\begin{comment}
 \section{Data analysis}
 
 In this section, we implement the methods studied in this paper to analyze a data set where it is important to account for nonstationary covariance structure. We first use moving window likelihood estimation to infer spatially varying Mat\'ern parameters. We then translate these into their local SAR covariance parameter equivalents, and we encode the spatially varying SAR parameters into the nonstationary SAR covariance model. This model makes it possible to visualize the resulting nonstationary covariance matrix and efficiently simulate new realizations.
+\end{comment}
 
-\subsection{NCAR LENS Data}
+\section{NCAR LENS Data}
 
-The data set from the NCAR CESM Large Ensemble project \cite{kay2015community} is comprised of 30 spatial fields that we consider independent replicates of the same distribution due to the nature of climate model experiments run with different initial conditions. Nychka \cite{nychka2018modeling} first analyzed these data using the LatticeKrig model, and the original article details the climate science application. Details about the pattern scaling approach to statistical emulation can also be found in \cite{alexeeff2018emulating}. Briefly, each field is a measure of how the local temperature average is affected by a global temperature average increase of one degree Celsius. The data locations are on a $288 \times 192$ grid with approximately one degree resolution, covering the entire globe. 
+The data set from the NCAR CESM Large Ensemble project \cite{kay2015community} is comprised of 30 spatial fields that can be assumed to be independent replicates from the same distribution. This feature is based on the nature of  climate model experiments run over a long period and started with different initial conditions. Nychka \cite{nychka2018modeling} first analyzed these data using the LatticeKrig model, and the original article details the climate science application. The data locations are on a $288 \times 192$ grid with approximately one degree resolution, covering the entire globe.  Details about the pattern scaling approach to statistical emulation can also be found in \cite{alexeeff2018emulating}. Briefly, each field is a measure of how the local temperature average is affected by a global temperature average increase of one degree Celsius.  Generating this ensemble involved a large amount of super computer resources. 
+The statistical task is represent these spatial fields with a probability distribution where is more efficient to generate additional fields ( e.g. several hundred or thousands)  that track the original 30 member model results. 
 
 \begin{figure}
     \centering
-    %%%% \includegraphics[scale=0.275]{"plots/Estimates".png}
+    \includegraphics[scale=0.275]{"plots/Estimates".png}
     \caption{The results of the moving window likelihood estimation. The sill $\sigma^2( \mathbf s)$ (a), nugget $\tau^2( \mathbf s)$ (b), geometric average range $\sqrt{\lambda_x ( \mathbf s) \lambda_y ( \mathbf s)}$ (c), and anisotropy ellipses $\Sigma ( \mathbf s)$ (d)}
     \label{f:3}
 \end{figure}
 
-To streamline this example, we focus on the subregion encompassing the Americas and surrounding oceans containing $13,052$ observations on a $102 \times 128$ grid. The top row of Figure \ref{f:4} shows the first four sample fields from the data set we analyze. The one data modification from \cite{nychka2018modeling} is that, in addition to de-meaning each grid box, we have also studentized the fields by dividing by the empirical standard deviation of each grid box over the 30 replicates. 
+To streamline the example, we focus on the subregion including the Americas and surrounding oceans containing $13,052$ observations on a $102 \times 128$ grid. The top row of Figure \ref{f:4} shows the first four sample fields from the data set we analyze. The one data modification from \cite{nychka2018modeling} is that, in addition to subtracting ensemble mean from  each grid box, we have also standardized the fields by dividing by the ensemble standard deviation of each grid box.
 
-\subsection{Estimation}
+\subsection{Covariance parameter estimates}
 
+ Moving window local MLES were found using  window sizes between $8 \times 8$ and $15 \times 15$. Across these choices there was little change in the estimates and subsequent analysis used an  $11 \times 11$ window. This window size is consistent with the long range correlations over the ocean and also the estimate from Section \ref{ss:2}. The estimation was performed on the NCAR Cheyenne supercomputer \cite{cheyenne} using the R programming language \cite{Rcore} with the \texttt{Rmpi} \cite{yu2002rmpi} and \texttt{fields} packages \cite{fields}. The details of the parallel implementation are the same as in \cite{nychka2018modeling}. Since the fields were standardized included the constraint $\sigma^2 = 1 - \tau^2$ was included. 
 
-First, we performed moving window likelihood estimation as specified in equations (\ref{e:4}) and (\ref{e:5}). We tested several window sizes between $8 \times 8$ and $15 \times 15$, and saw little change in the estimates.  Based on this range, an $11 \times 11$ window size was chosen. This window size is consistent with the long range correlations over the ocean and also the estimate from Section \ref{ss:2}. The estimation was performed on the NCAR Cheyenne supercomputer \cite{cheyenne} using the R programming language \cite{Rcore} with the \texttt{Rmpi} \cite{yu2002rmpi} and \texttt{fields} packages \cite{fields}. The details of the parallel implementation are the same as in \cite{nychka2018modeling}. Since the fields were studentized to begin with in this example, we included the constraint $\sigma^2 = 1 - \tau^2$.
-
-The estimates for the spatially varying parameters are shown in Figure \ref{f:3}. The sill and nugget variances are shown in (a) and (b). Panel (c) shows the geometric mean of $\lambda_x$ and $\lambda_y$ as a measure of the ``average range", which agrees with the range in the isotropic case. Finally in panel (d), a sample grid of the estimated anisotropy matrices $\Sigma(\mathbf s_i)$ are plotted by computing the $15\%$ coverage of the bivariate Gaussian covariance ellipses using the \texttt{ellipse} package in R \cite{ellipse}.
-
-The large signal to noise ratio $\sigma^2/\tau^2$ (not shown) and the evident transition in the covariance structure between land and ocean indicates that the nonstationarity in the second-order structure of the data is being accurately estimated. Based on the coastlines in some regions, we think that global estimation using some low-dimensional representations of the parameter fields could significantly influence the results; however, the decision is often application specific.
+The estimates for the spatially varying parameters are shown in Figure \ref{f:3}. The sill and nugget variances are shown in (a) and (b). Panel (c) shows the geometric mean of $\lambda_x$ and $\lambda_y$ as a measure of the ``average range", and also agrees with the range in the isotropic case. Finally in panel (d), the estimated anisotropy  $\Sigma(\mathbf s_i)$ is depicted  by glyphs indicating the range and departure from isotropy. 
+The large signal to noise ratio $\sigma^2/\tau^2$ (not shown) and the evident transition in the covariance structure between land and ocean suggests that the nonstationarity in the second-order structure of the data is being accurately estimated. Based on the coastlines in some regions, we think that the addition of a land/ocean covariate may be useful 
 
 
 
-\subsection{Using local estimates}
+\subsection{Model checking}
 
+\begin{verbatim}
 \begin{figure}
-    \centering
-    %%%% \includegraphics[scale=0.26]{"plots/Simulations".png}
+    \centering 
+   \includegraphics[scale=0.26]{"plots/Simulations".png}
     \caption{The top row consists of the first four ensemble members from the NCAR CESM data set. The bottom row shows four unconditional simulations from the nonstationary SAR model}
     \label{f:4}
 \end{figure}
 
 
-The nonstationary SAR model is convenient for plugging in locally estimated parameters and capable of modeling large data sets. For this reason, we chose to translate the local Mat\'ern parameters into their approximate SAR parameter equivalents. The translation was done using the numerical relationship derived in this \ref{ss:1}. Then, the local SAR parameters were encoded into the nonstationary SAR model. Simulations from this covariance are shown in the bottom row of Figure \ref{f:4}. The simulations do a reasonable job emulating the data, but are lacking some of the long range anisotropy over the ocean.
 
-To gain insight into how the nonstationary SAR model is related to the process convolution construction, we inspect the SAR model's correlations corresponding to individual observation locations, encoded in the rows of the correlation matrix, in the top row of Figure \ref{f:5}. Similarly, plotted in the bottom row of Figure \ref{f:5} are the rows of the symmetric square root of the correlation matrix, which give a discrete approximation to the kernels that could be used to ``construct" the process via the process convolution approach, analogous to $ \Psi_{\mathbf{s}}$. 
+The nonstationary SAR model is convenient for plugging in locally estimated parameters and capable of modeling large data sets. For this reason, we chose to translate the local Mat\'ern parameters into their approximate SAR parameter equivalents. The translation was done using the numerical relationship derived in this \ref{ss:1}. Then, the local SAR parameters were encoded into the nonstationary SAR model. Simulations from this covariance are shown in the bottom row of Figure \ref{f:4}. The simulations do a reasonable job emulating the data, but are lacking some of the long range anisotropy over the ocean.
+\end{verbatim}
+
+To illustrate  how the nonstationarity estimated for this model is related to land/ocean  boundaries  the top row of Figure \ref{f:5} illustrates several different locations in the spatial domain and plots the SAR weights (different rows of $B$). Similarly, plotted in the bottom row of Figure \ref{f:5} are the rows of the symmetric square root of the correlation matrix, which give a discrete approximation to the kernels that could be used to ``construct" the process via the process convolution approach, analogous to $ \Psi_{\mathbf{s}}$. 
 
 
 \begin{figure}
@@ -395,17 +390,29 @@ Both anisotropy and nonstationarity are evident in Figure \ref{f:5}. Note the di
     \label{f:6}
 \end{figure}
 
-Finally, in Figure \ref{f:6} one can see the result of $B$, the symmetric square root of the precision matrix, applied to one of the replicates to which the model was fitted. To carry out this matrix multiplication, the spatial field is flattened into a vector in the same order specified by the covariance matrix. We used this diagnostic tool to visually assess the goodness of fit of the model covariance matrix to the spatial distribution of the data. If the spatial distribution of the data is fitted correctly, this process should result in a decorrelated field of white noise. Excluding the slight heteroskedasticity present near coastal regions, Figure \ref{f:6} indicates that the vast majority of the correlation in the data has been captured in the model, and therefore has been removed from the data via this matrix transformation. We did not implement any formal whitening test on the decorrelated fields, although this could be used as a more general goodness of fit test in covariance modeling.
+
+The SAR representation as a global model for  the spatial field provides a convenient way to check the model fit.   Under the assumption that the nugget variance is small relative to the smooth Gaussian process, the SAR matrix should  decorrelate the observed field. 
+Let $\bby$ be the observed field and with covariance matrix, $\Sigma$. The simple idea is to factor $\Sigma$ as $A^{-1} A^{-T}$ and then  check that $A\bby$ is a white noise field, or at least a spatial process with much reduced  spatial dependence. 
+Note that the choice of $A$ is not unique and it makes sense to choose a version of the square root that has weights that are localized around each observation location. In this analysis 
+  \[ \Sigma=  \sigma^2 B^{-1} B^{-T} + \tau^2 I  = \sigma B^{-1}( I + \tau Q ) \sigma B^{-T} \]
+where $Q$ is the precision matrix. If the $\tau= 0$ then the SAR matrix gives a version of $A$ that is localized. 
+If $\tau^2$ is small relative to $\sigma^2$ then  $B\bby$ will have covariance  $(I +  \tau^2Q)$ and this will approximate a white noise field. Small $\tau^2$ is a reasonable assumption in practice because one is often interested in simulation and prediction of spatial data that has strong spatial coherence. Note that $Q$ is sparse and when viewed as a covariance matrix will have localized correlations. A refinement of using just $B$ as a decorrelation transformation is  to approximate the inverse square root of $( I + \tau Q )$ with a series expansion to find a more accurate approximation to $A$. 
+From elementary power series erxpansions we have 
+\[ 1/\sqrt{ 1 + u} =  1  - \frac{1}{2}u + \frac{1\cdot 3}{2 \cdot 4} u^2 - \frac{1 \cdot 3 \cdot 5}{2 \cdot 4 \cdot 6} u^3 + \ldots \]
+and provided that  $\| \tau^2 Q \| < 1$  one can use this power series to approximate  $(I + \tau^2 Q)^{-1/2}$  as a symmetric matrix.  For example a first order correction would be $I - (1/2) \tau^2 Q $ and it easily applied since $Q$ is formed from the sparse SAR matrix and for transforming a limited number of fields one would never construct the matrix explicitly but just multiply the fields of interest by successive power of $Q$.
+
+Figure \ref{f:6} depicts the result of $B$ applied to one of the replicates to which the model was fitted. To carry out this matrix multiplication, the spatial field is flattened into a vector in the same order specified by the covariance matrix.  As a diagnostic tool one can  visually assess the goodness of fit of the model covariance matrix to the spatial distribution of the data. If the spatial distribution of the data is fit correctly, this process should result in a decorrelated field of white noise. Excluding the slight heteroskedasticity present near coastal regions, Figure \ref{f:6} indicates that the vast majority of the correlation in the data has been captured in the model, and therefore has been removed from the data via this matrix transformation. This success is encouraging given the long range correlations over the ocean that have been identified from local estimation and as a SAR only operate on second order neighbors.  A formal  test for  was implemented on the decorrelated fields, although this could be used as a more general goodness-of-fit test in covariance modeling.
 
 
 \section{Conclusion}
 
-In this paper, we have investigated the multistage framework of local estimation and global encoding. We have shown that when independent replicates of approximately locally stationary spatial data are available, robust local estimation is a viable technique for estimating the nonstationarity in the covariance parameters.
+In this paper, we have investigated a two stage framework of local estimation and global encoding to represent large ans nonstationary covariance functions. We have shown that when independent replicates where  locally stationary spatial data holds,  local ML estimation is a robust technique for estimating the nonstationarity in the covariance parameters. in particular the Monte Carlo results indicate the climate model example falls within this context. 
 
-We also explored the stationary Mat\'ern-SAR covariance model approximation, conducting a numerical experiment to compare against existing results. It seems that the analytic approximation between the models is not exact for long correlation ranges, and we can use these numerical results to translate parameters between the Mat\'ern and SAR models more accurately.
+We also explored the stationary Mat\'ern-SAR covariance model approximation, conducting a numerical experiment to compare against existing results. The analytic approximation between the models is not reliable for long correlation ranges, howvere, we can use a  numerical  approximation s to translate parameters between the Mat\'ern and SAR models more accurately. To our knowledge this is the first time detailed numerical mappings have been made between the anisotropic SAR model and an anisotrophic Mat\'ern covariance function. 
 
-An important contribution of this work is showing nonstationary data can be modeled by combining local maximum likelihood estimation with a simple global nonstationary covariance model that is straightforward to implement. We focused on encoding the locally estimated parameters in the nonstationary SAR model. In addition, the multistage approach is computationally efficient and can be applied to very large spatial data sets: local estimation avoids the big $n$ problem of global estimation, and encoding local estimates in a SAR model allows us to use sparsity for prediction and simulation. Another major advantage of this method is that it can be applied to both continuously indexed and lattice data. Local estimation of Mat\'ern parameters can incorporate regular or irregularly spaced data, and can always be performed in a way that makes encoding in the discrete SAR model possible.
-
+An important contribution of this work is showing nonstationary data can be modeled by combining local maximum likelihood estimation with a simple global nonstationary covariance model that is straightforward to implement. We focused on encoding the locally estimated parameters in the nonstationary SAR model. In addition, the multistage approach is computationally efficient and can be applied to very large spatial data sets: local estimation avoids the big $n$ problem of global estimation, and encoding local estimates in a SAR model allows us to exploit sparsity for prediction and simulation. Another major advantage of this method is that it can be applied to both continuously indexed and lattice data. 
+To reduce the scope of this work we have focused on lattice data. Although this restricted format will continue to be standard for climate models the SAR models can also be extended to irregularly spaced. One approach for nonlattice spatial data is the LatticeKrig model that imposes the SAR and lattice structure on coefficients in a basis function expansion rather than directly on the field.  We believe the anisotropic models developed here will carry over for more general models such as basis expansions and the inverse square root transformation will be an important diagnostic tool for nonstationary modeling. 
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
