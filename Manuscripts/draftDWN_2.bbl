@@ -1,0 +1,292 @@
+\begin{thebibliography}{34}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Alexeeff et~al.(2018)Alexeeff, Nychka, Sain and
+  Tebaldi}]{alexeeff2018emulating}
+\bibinfo{author}{Alexeeff, S.E.}, \bibinfo{author}{Nychka, D.},
+  \bibinfo{author}{Sain, S.R.}, \bibinfo{author}{Tebaldi, C.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Emulating mean patterns and variability of
+  temperature across and within scenarios in anthropogenic climate change
+  experiments}.
+\newblock \bibinfo{journal}{Climatic Change} \bibinfo{volume}{146},
+  \bibinfo{pages}{319--333}.
+%Type = Article
+\bibitem[{Anderes and Stein(2011)}]{anderes2011local}
+\bibinfo{author}{Anderes, E.B.}, \bibinfo{author}{Stein, M.L.},
+  \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Local likelihood estimation for nonstationary random
+  fields}.
+\newblock \bibinfo{journal}{Journal of Multivariate Analysis}
+  \bibinfo{volume}{102}, \bibinfo{pages}{506--520}.
+%Type = Article
+\bibitem[{Anderes et~al.(2008)Anderes, Stein et~al.}]{anderes2008estimating}
+\bibinfo{author}{Anderes, E.B.}, \bibinfo{author}{Stein, M.L.}, et~al.,
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Estimating deformations of isotropic gaussian random
+  fields on the plane}.
+\newblock \bibinfo{journal}{The Annals of Statistics} \bibinfo{volume}{36},
+  \bibinfo{pages}{719--741}.
+%Type = Misc
+\bibitem[{{Computational and Information Systems Laboratory}(2017)}]{cheyenne}
+\bibinfo{author}{{Computational and Information Systems Laboratory}},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{{Cheyenne: HPE/SGI ICE XA System (University
+  Community Computing)}}.
+\newblock \DOIprefix\doi{doi:10.5065/D6RX99HX}.
+%Type = Article
+\bibitem[{Cressie and Johannesson(2008)}]{cressie2008fixed}
+\bibinfo{author}{Cressie, N.}, \bibinfo{author}{Johannesson, G.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Fixed rank kriging for very large spatial data sets}.
+\newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)} \bibinfo{volume}{70}, \bibinfo{pages}{209--226}.
+%Type = Misc
+\bibitem[{{Douglas Nychka} et~al.(2017){Douglas Nychka}, {Reinhard Furrer},
+  {John Paige} and {Stephan Sain}}]{fields}
+\bibinfo{author}{{Douglas Nychka}}, \bibinfo{author}{{Reinhard Furrer}},
+  \bibinfo{author}{{John Paige}}, \bibinfo{author}{{Stephan Sain}},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{fields: Tools for spatial data}.
+\newblock \URLprefix \url{www.image.ucar.edu/~nychka/Fields},
+  \DOIprefix\doi{10.5065/D6W957CT}. \bibinfo{note}{{R package version 9.6}}.
+%Type = Article
+\bibitem[{Fuentes(2002)}]{fuentes2002spectral}
+\bibinfo{author}{Fuentes, M.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Spectral methods for nonstationary spatial
+  processes}.
+\newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{89},
+  \bibinfo{pages}{197--210}.
+%Type = Techreport
+\bibitem[{Fuentes and Smith(2001)}]{fuentes2001new}
+\bibinfo{author}{Fuentes, M.}, \bibinfo{author}{Smith, R.L.},
+  \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{A new class of nonstationary spatial models}.
+\newblock \bibinfo{type}{Technical Report}. Technical report, North Carolina
+  State University, Raleigh, NC.
+%Type = Article
+\bibitem[{Fuglstad et~al.(2015a)Fuglstad, Lindgren, Simpson and
+  Rue}]{fuglstad2015exploring}
+\bibinfo{author}{Fuglstad, G.A.}, \bibinfo{author}{Lindgren, F.},
+  \bibinfo{author}{Simpson, D.}, \bibinfo{author}{Rue, H.},
+  \bibinfo{year}{2015}a.
+\newblock \bibinfo{title}{Exploring a new class of non-stationary spatial
+  gaussian random fields with varying local anisotropy}.
+\newblock \bibinfo{journal}{Statistica Sinica} , \bibinfo{pages}{115--133}.
+%Type = Article
+\bibitem[{Fuglstad et~al.(2015b)Fuglstad, Simpson, Lindgren and
+  Rue}]{fuglstad2015does}
+\bibinfo{author}{Fuglstad, G.A.}, \bibinfo{author}{Simpson, D.},
+  \bibinfo{author}{Lindgren, F.}, \bibinfo{author}{Rue, H.},
+  \bibinfo{year}{2015}b.
+\newblock \bibinfo{title}{Does non-stationary spatial data always require
+  non-stationary random fields?}
+\newblock \bibinfo{journal}{Spatial Statistics} \bibinfo{volume}{14},
+  \bibinfo{pages}{505--531}.
+%Type = Article
+\bibitem[{Haas(1990a)}]{haas1990kriging}
+\bibinfo{author}{Haas, T.C.}, \bibinfo{year}{1990}a.
+\newblock \bibinfo{title}{Kriging and automated variogram modeling within a
+  moving window}.
+\newblock \bibinfo{journal}{Atmospheric Environment. Part A. General Topics}
+  \bibinfo{volume}{24}, \bibinfo{pages}{1759--1769}.
+%Type = Article
+\bibitem[{Haas(1990b)}]{haas1990lognormal}
+\bibinfo{author}{Haas, T.C.}, \bibinfo{year}{1990}b.
+\newblock \bibinfo{title}{Lognormal and moving window methods of estimating
+  acid deposition}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{volume}{85}, \bibinfo{pages}{950--963}.
+%Type = Article
+\bibitem[{Heaton et~al.(2017)Heaton, Datta, Finley, Furrer, Guhaniyogi, Gerber,
+  Gramacy, Hammerling, Katzfuss, Lindgren et~al.}]{heaton2017methods}
+\bibinfo{author}{Heaton, M.J.}, \bibinfo{author}{Datta, A.},
+  \bibinfo{author}{Finley, A.}, \bibinfo{author}{Furrer, R.},
+  \bibinfo{author}{Guhaniyogi, R.}, \bibinfo{author}{Gerber, F.},
+  \bibinfo{author}{Gramacy, R.B.}, \bibinfo{author}{Hammerling, D.},
+  \bibinfo{author}{Katzfuss, M.}, \bibinfo{author}{Lindgren, F.}, et~al.,
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Methods for analyzing large spatial data: A review
+  and comparison}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1710.05013} .
+%Type = Article
+\bibitem[{Higdon(1998)}]{higdon1998process}
+\bibinfo{author}{Higdon, D.}, \bibinfo{year}{1998}.
+\newblock \bibinfo{title}{A process-convolution approach to modelling
+  temperatures in the north atlantic ocean}.
+\newblock \bibinfo{journal}{Environmental and Ecological Statistics}
+  \bibinfo{volume}{5}, \bibinfo{pages}{173--190}.
+%Type = Incollection
+\bibitem[{Higdon(2002)}]{higdon2002space}
+\bibinfo{author}{Higdon, D.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Space and space-time modeling using process
+  convolutions}, in: \bibinfo{booktitle}{Quantitative methods for current
+  environmental issues}. \bibinfo{publisher}{Springer}, pp.
+  \bibinfo{pages}{37--56}.
+%Type = Article
+\bibitem[{Higdon et~al.(1999)Higdon, Swall and Kern}]{higdon1999non}
+\bibinfo{author}{Higdon, D.}, \bibinfo{author}{Swall, J.},
+  \bibinfo{author}{Kern, J.}, \bibinfo{year}{1999}.
+\newblock \bibinfo{title}{Non-stationary spatial modeling}.
+\newblock \bibinfo{journal}{Bayesian statistics} \bibinfo{volume}{6},
+  \bibinfo{pages}{761--768}.
+%Type = Article
+\bibitem[{Katzfuss and Cressie(2011)}]{katzfuss2011spatio}
+\bibinfo{author}{Katzfuss, M.}, \bibinfo{author}{Cressie, N.},
+  \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Spatio-temporal smoothing and em estimation for
+  massive remote-sensing data sets}.
+\newblock \bibinfo{journal}{Journal of Time Series Analysis}
+  \bibinfo{volume}{32}, \bibinfo{pages}{430--446}.
+%Type = Article
+\bibitem[{Kaufman and Shaby(2013)}]{kaufman2013role}
+\bibinfo{author}{Kaufman, C.}, \bibinfo{author}{Shaby, B.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{The role of the range parameter for estimation and
+  prediction in geostatistics}.
+\newblock \bibinfo{journal}{Biometrika} \bibinfo{volume}{100},
+  \bibinfo{pages}{473--484}.
+%Type = Article
+\bibitem[{Kay et~al.(2015)Kay, Deser, Phillips, Mai, Hannay, Strand, Arblaster,
+  Bates, Danabasoglu, Edwards et~al.}]{kay2015community}
+\bibinfo{author}{Kay, J.}, \bibinfo{author}{Deser, C.},
+  \bibinfo{author}{Phillips, A.}, \bibinfo{author}{Mai, A.},
+  \bibinfo{author}{Hannay, C.}, \bibinfo{author}{Strand, G.},
+  \bibinfo{author}{Arblaster, J.}, \bibinfo{author}{Bates, S.},
+  \bibinfo{author}{Danabasoglu, G.}, \bibinfo{author}{Edwards, J.}, et~al.,
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{{The Community Earth System Model (CESM) large
+  ensemble project: A community resource for studying climate change in the
+  presence of internal climate variability}}.
+\newblock \bibinfo{journal}{Bulletin of the American Meteorological Society}
+  \bibinfo{volume}{96}, \bibinfo{pages}{1333--1349}.
+%Type = Article
+\bibitem[{Lindgren and Rue(2007)}]{lindgren2007explicit}
+\bibinfo{author}{Lindgren, F.}, \bibinfo{author}{Rue, H.},
+  \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Explicit construction of gmrf approximations to
+  generalised mat{\'e}rn fields on irregular grids}.
+\newblock \bibinfo{journal}{Preprints in Mathematical Sciences}
+  \bibinfo{volume}{5}.
+%Type = Article
+\bibitem[{Lindgren et~al.(2011)Lindgren, Rue and
+  Lindstr{\"o}m}]{lindgren2011explicit}
+\bibinfo{author}{Lindgren, F.}, \bibinfo{author}{Rue, H.},
+  \bibinfo{author}{Lindstr{\"o}m, J.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{An explicit link between gaussian fields and gaussian
+  markov random fields: the stochastic partial differential equation approach}.
+\newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)} \bibinfo{volume}{73}, \bibinfo{pages}{423--498}.
+%Type = Article
+\bibitem[{Nychka et~al.(2015)Nychka, Bandyopadhyay, Hammerling, Lindgren and
+  Sain}]{nychka2015multiresolution}
+\bibinfo{author}{Nychka, D.}, \bibinfo{author}{Bandyopadhyay, S.},
+  \bibinfo{author}{Hammerling, D.}, \bibinfo{author}{Lindgren, F.},
+  \bibinfo{author}{Sain, S.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{A multiresolution gaussian process model for the
+  analysis of large spatial datasets}.
+\newblock \bibinfo{journal}{Journal of Computational and Graphical Statistics}
+  \bibinfo{volume}{24}, \bibinfo{pages}{579--599}.
+%Type = Article
+\bibitem[{Nychka et~al.(2018)Nychka, Hammerling, Krock and
+  Wiens}]{nychka2018modeling}
+\bibinfo{author}{Nychka, D.}, \bibinfo{author}{Hammerling, D.},
+  \bibinfo{author}{Krock, M.}, \bibinfo{author}{Wiens, A.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Modeling and emulation of nonstationary gaussian
+  fields}.
+\newblock \bibinfo{journal}{Spatial Statistics} .
+%Type = Article
+\bibitem[{Nychka et~al.(2002)Nychka, Wikle and
+  Royle}]{nychka2002multiresolution}
+\bibinfo{author}{Nychka, D.}, \bibinfo{author}{Wikle, C.},
+  \bibinfo{author}{Royle, J.A.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Multiresolution models for nonstationary spatial
+  covariance functions}.
+\newblock \bibinfo{journal}{Statistical Modelling} \bibinfo{volume}{2},
+  \bibinfo{pages}{315--331}.
+%Type = Inproceedings
+\bibitem[{Paciorek and Schervish(2004)}]{paciorek2004nonstationary}
+\bibinfo{author}{Paciorek, C.J.}, \bibinfo{author}{Schervish, M.J.},
+  \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Nonstationary covariance functions for gaussian
+  process regression}, in: \bibinfo{booktitle}{Advances in neural information
+  processing systems}, pp. \bibinfo{pages}{273--280}.
+%Type = Manual
+\bibitem[{{R Core Team}(2018)}]{Rcore}
+\bibinfo{author}{{R Core Team}}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{{R: A Language and Environment for Statistical
+  Computing}}.
+\newblock \bibinfo{organization}{{R Foundation for Statistical Computing}}.
+  \bibinfo{address}{Vienna, Austria}.
+\newblock \URLprefix \url{https://www.R-project.org/}.
+%Type = Article
+\bibitem[{Risser(2016)}]{risser2016nonstationary}
+\bibinfo{author}{Risser, M.D.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Nonstationary spatial modeling, with emphasis on
+  process convolution and covariate-driven approaches}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1610.02447} .
+%Type = Article
+\bibitem[{Risser and Calder(2015)}]{risser2015local}
+\bibinfo{author}{Risser, M.D.}, \bibinfo{author}{Calder, C.A.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Local likelihood estimation for covariance functions
+  with spatially-varying parameters: the convospat package for r}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1507.08613} .
+%Type = Book
+\bibitem[{Rue and Held(2005)}]{rue2005gaussian}
+\bibinfo{author}{Rue, H.}, \bibinfo{author}{Held, L.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Gaussian Markov random fields: theory and
+  applications}.
+\newblock \bibinfo{publisher}{CRC press}.
+%Type = Article
+\bibitem[{Sampson and Guttorp(1992)}]{sampsonguttorp}
+\bibinfo{author}{Sampson, P.D.}, \bibinfo{author}{Guttorp, P.},
+  \bibinfo{year}{1992}.
+\newblock \bibinfo{title}{Nonparametric estimation of nonstationary spatial
+  covariance structure}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{volume}{87}, \bibinfo{pages}{108--119}.
+\newblock \URLprefix \url{http://www.jstor.org/stable/2290458}.
+%Type = Article
+\bibitem[{Simpson et~al.(2012)Simpson, Lindgren and Rue}]{simpson2012think}
+\bibinfo{author}{Simpson, D.}, \bibinfo{author}{Lindgren, F.},
+  \bibinfo{author}{Rue, H.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Think continuous: Markovian gaussian models in
+  spatial statistics}.
+\newblock \bibinfo{journal}{Spatial Statistics} \bibinfo{volume}{1},
+  \bibinfo{pages}{16--29}.
+%Type = Article
+\bibitem[{Ver~Hoef et~al.(2004)Ver~Hoef, Cressie and Barry}]{ver2004flexible}
+\bibinfo{author}{Ver~Hoef, J.M.}, \bibinfo{author}{Cressie, N.},
+  \bibinfo{author}{Barry, R.P.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Flexible spatial models for kriging and cokriging
+  using moving averages and the fast fourier transform (fft)}.
+\newblock \bibinfo{journal}{Journal of Computational and Graphical Statistics}
+  \bibinfo{volume}{13}, \bibinfo{pages}{265--282}.
+%Type = Article
+\bibitem[{Yu(2002)}]{yu2002rmpi}
+\bibinfo{author}{Yu, H.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{{Rmpi: parallel statistical computing in R}}.
+\newblock \bibinfo{journal}{{R News}} \bibinfo{volume}{2},
+  \bibinfo{pages}{10--14}.
+%Type = Article
+\bibitem[{Zhu and Wu(2010)}]{zhu2010estimation}
+\bibinfo{author}{Zhu, Z.}, \bibinfo{author}{Wu, Y.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Estimation and prediction of a class of
+  convolution-based spatial nonstationary models for large spatial data}.
+\newblock \bibinfo{journal}{Journal of Computational and Graphical Statistics}
+  \bibinfo{volume}{19}, \bibinfo{pages}{74--95}.
+
+\end{thebibliography}
