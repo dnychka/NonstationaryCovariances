@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  24 JUL 2019 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 AUG 2019 00:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -408,63 +408,63 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 File: "plots/MaternSARtranslation".png Graphic file (type png)
 <use "plots/MaternSARtranslation".png>
 Package pdftex.def Info: "plots/MaternSARtranslation".png  used on input line 2
-62.
+64.
 (pdftex.def)             Requested size: 349.33978pt x 193.64102pt.
  [9] [10 <./plots/MaternSARtranslation.png>]
 [11] [12]
-<"plots/LocalTPS".png, id=236, 1407.75937pt x 723.20187pt>
+<"plots/LocalTPS".png, id=235, 1407.75937pt x 723.20187pt>
 File: "plots/LocalTPS".png Graphic file (type png)
 <use "plots/LocalTPS".png>
-Package pdftex.def Info: "plots/LocalTPS".png  used on input line 333.
+Package pdftex.def Info: "plots/LocalTPS".png  used on input line 335.
 (pdftex.def)             Requested size: 323.77785pt x 166.33293pt.
  [13 <./plots/LocalTPS.png>]
 <"plots/Estimates".png, id=247, 1283.79625pt x 594.22pt>
 File: "plots/Estimates".png Graphic file (type png)
 <use "plots/Estimates".png>
-Package pdftex.def Info: "plots/Estimates".png  used on input line 357.
+Package pdftex.def Info: "plots/Estimates".png  used on input line 359.
 (pdftex.def)             Requested size: 353.03526pt x 163.40646pt.
 
-Overfull \hbox (8.03526pt too wide) in paragraph at lines 357--358
+Overfull \hbox (8.03526pt too wide) in paragraph at lines 359--360
  [][] 
  []
 
-[14 <./plots/Estimates.png>]
+[14]
 <"plots/Simulations".png, id=268, 1227.58624pt x 697.60625pt>
 File: "plots/Simulations".png Graphic file (type png)
 <use "plots/Simulations".png>
-Package pdftex.def Info: "plots/Simulations".png  used on input line 377.
+Package pdftex.def Info: "plots/Simulations".png  used on input line 379.
 (pdftex.def)             Requested size: 343.7218pt x 195.32841pt.
- [15 <./plots/Simulations.png>]
+ [15 <./plots/Estimates.png>]
 <"plots/Correlations".png, id=283, 1172.88188pt x 504.88625pt>
 File: "plots/Correlations".png Graphic file (type png)
 <use "plots/Correlations".png>
-Package pdftex.def Info: "plots/Correlations".png  used on input line 395.
+Package pdftex.def Info: "plots/Correlations".png  used on input line 397.
 (pdftex.def)             Requested size: 328.40468pt x 141.36717pt.
 <"plots/Decorr".png, id=284, 1159.83313pt x 409.02812pt>
 File: "plots/Decorr".png Graphic file (type png)
 <use "plots/Decorr".png>
-Package pdftex.def Info: "plots/Decorr".png  used on input line 403.
+Package pdftex.def Info: "plots/Decorr".png  used on input line 405.
 (pdftex.def)             Requested size: 347.95262pt x 122.70938pt.
 
-Overfull \hbox (2.95262pt too wide) in paragraph at lines 403--404
+Overfull \hbox (2.95262pt too wide) in paragraph at lines 405--406
  [][] 
  []
 
-[16 <./plots/Correlations.png>] [17 <./plots/Decorr.png>] (./draftDWN_2.bbl
-[18] [19] [20])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 443.
- [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 443.
+[16 <./plots/Simulations.png>] [17 <./plots/Correlations.png> <./plots/Decorr.p
+ng>] [18] (./draftDWN_2.bbl [19] [20] [21])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 449.
+ [22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 449.
  (./draftDWN_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 443.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 443.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 449.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 449.
 Package rerunfilecheck Info: File `draftDWN_2.out' has not changed.
 (rerunfilecheck)             Checksum: FCCBC72B5A8D7908929E0BB65A43FA17;1107.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 443.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 449.
  ) 
 Here is how much of TeX's memory you used:
- 7139 strings out of 492649
- 101241 string characters out of 6129622
+ 7140 strings out of 492649
+ 101248 string characters out of 6129622
  199757 words of memory out of 5000000
  10833 multiletter control sequences out of 15000+600000
  13798 words of font info for 52 fonts, out of 8000000 for 9000
@@ -498,10 +498,10 @@ nts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on draftDWN_2.pdf (21 pages, 7850331 bytes).
+Output written on draftDWN_2.pdf (22 pages, 7851373 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 500000)
+ 439 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  151 words of extra memory for PDF output out of 10000 (max. 10000000)
 

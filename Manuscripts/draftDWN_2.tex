@@ -100,14 +100,16 @@ The paper is organized as follows. In section 2, the Mat\'ern family of correlat
 \subsection{The Mat\'ern covariance model}
 \label{ss:2.1}
 
-Let $g(\bbf)$ be a Gaussian process with mean zero and covariance function  $k( \bbx, \bbx^\prime)$.
+Let $f$ be a Gaussian process with mean zero and covariance function  $k( \bbx, \bbx^\prime)$.
 The Mat\'ern family of stationary covariance models is important because of its flexibility and the interpretability of its parameters. The  Mat\'ern covariance function with a unit range (scale) parameter is
 
-$$ k( \bbx, \bbx^\prime) = C( \, d \, | \, \nu,  \sigma^2 \, ) =\sigma ^{2}{\frac {2^{1-\nu }}{\Gamma (\nu )}}{( d)}^{\nu }\mathcal{K}_{\nu }{( d  )},$$
+$$ \omega(d) = C( \, d \, | \, \nu,  \sigma^2 \, ) =\sigma ^{2}{\frac {2^{1-\nu }}{\Gamma (\nu )}}{( d)}^{\nu }\mathcal{K}_{\nu }{( d  )},$$
 
 
 
-where $d$ is the Euclidean distance between  $\bbx$ and $\bbx^\prime$,  $\mathcal{K}_{\nu }(\cdot)$ is the modified Bessel function of the second kind of order $\nu$, and $\Gamma(\cdot)$ is the gamma function. $\sigma^2$ is the spatial process variance (sill), and $\nu$ is the smoothness parameter which controls the mean square differentiability of the process. % $a$ is the multiplicative range parameter, 
+where $d$ is the Euclidean distance between  $\bbx$ and $\bbx^\prime$,  $\mathcal{K}_{\nu }(\cdot)$ is the modified Bessel function of the second kind of order $\nu$, and $\Gamma(\cdot)$ is the gamma function. $\sigma^2$ is the spatial process variance (sill), and $\nu$ is the smoothness parameter which controls the mean square differentiability of the process. The isotropic covariance function with range $\kappa$ is given by % $a$ is the multiplicative range parameter, 
+
+$$ k( \bbx, \bbx^\prime) = \omega(\kappa d)$$
 
 This model can be extended to include geometric anisotropy through the definition of the distance that is a linear scaling and rotation of the coordinates.
 Let 
@@ -116,7 +118,7 @@ where $U$ is a rotation matrix parameterized by angle $\theta$
 
 \[ U = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}, \]
 and
-$$D = \begin{bmatrix} \sqrt{\xi_x} & 0 \\ 0 & \sqrt{\xi_y} \end{bmatrix} $$ 
+$$D = \begin{bmatrix} \xi_x & 0 \\ 0 & \xi_y \end{bmatrix} $$ 
 is a diagonal matrix  scaling the $x$ and $y$ coordinate axes separately . Then the pairwise Mahalanobis distances among the observation locations are defined as
 $ d=  \| A\bbs - A\bbs^\prime \| $
 and these distances are then used as the argument to the isotropic Mat\'ern covariance function. 
@@ -186,7 +188,7 @@ A version of the SAR model that exhibits approximate stationarity and also geome
 \citet{lindgren2011explicit} suggested that the SAR covariance model can be thought of as a discrete approximation to the Mat\'ern covariance model. The idea is that a Gaussian Markov random field with SAR covariance can provide an approximation to a Gaussian field with Mat\'ern covariance. The connection is established through an SPDE formulation. In particular, it is known that a Gaussian field $u(\mathbf s)$ with stationary Mat\'ern covariance is a solution to the SPDE
 
 $$ (\kappa^2 - \Delta)^{\nicefrac{\alpha}{2}} u(\mathbf s) = \mathcal{W}(\mathbf s) $$
-where $\alpha = \nu + \frac{d}{2}$, $\kappa > 0, \nu > 0$, $\mathbf s \in \Omega = \mathbb{R}^d$, $d = 1$ or $2$, and $\mathcal{W}(s) \sim \mathcal{N}(0, \sigma^2$). As in the Mat\'ern model, $\nu$ controls the smoothness of the Gaussian field. Fixing $\nu = 1$ and $d = 2$, the authors showed that the SAR covariance structure obtained by discretizing the pseudodifferential operator $(\kappa^2 - \Delta)$ approximates a Mat\'ern covariance structure with range $a \approx \kappa$. 
+where $\alpha = \nu + \frac{d}{2}$, $\kappa > 0, \nu > 0$, $\mathbf s \in \Omega = \mathbb{R}^d$, $d = 1$ or $2$, and $\mathcal{W}(s)$ is identified as white noise with zero mean and variance $\sigma^2$. As in the Mat\'ern model, $\nu$ controls the smoothness of the Gaussian field. Fixing $\nu = 1$ and $d = 2$, the authors showed that the SAR covariance structure obtained by discretizing the pseudodifferential operator $(\kappa^2 - \Delta)$ approximates a Mat\'ern covariance structure with range $\kappa \approx \kappa_S$. This relationship is approximate.
 
 Similar results can be obtained for different smoothness parameters $\nu$ by convolving the finite difference stencil in (\ref{e:2}) with itself $\nu$ times, as detailed in the previous section for $\nu=1$ and $\nu=2$.
 
@@ -310,7 +312,7 @@ where $\epsilon_i \sim \operatorname{WN}(0, \tau_i^2)$ is spatial white noise, a
 \label{e:5}
      \log L(\nu, \bxi_i, \theta_i,  \sigma_i)  = - \frac{n p}{2} \log 2 \pi + \frac{1}{2} \log | G \ |^{-1} - \sum_{i=1}^p \frac{1}{2}(\mathbf y_i - \boldsymbol \mu_i )^T G_i^{-1} (\mathbf y_i - \boldsymbol \mu_i)
 \end{equation}
-where $\boldsymbol{\mu}_i$ is the mean function $\mu_i$ evaluated at the locations of $\mathbf y_i$, and $G_i$ is the covariance matrix for $\mathbf y_i$ and depends implicitly on the parameters enumerated in the likelihood.  % $\mathbf G$ ?
+where $\boldsymbol{\mu}_i$ is the mean function $\mu_i$ evaluated at the locations of $\mathbf y_i$, and $G_i$ is the covariance matrix for $\mathbf y_i$ and depends implicitly on the parameters enumerated in the likelihood. The likelihood is approximate because we are assuming stationarity within each data window.  % $\mathbf G$ ?
 
 After partitioning the data, finding each local likelihood estimate is an embarrassingly parallel task,
  which makes it a viable strategy for large data sets by using many computational cores. In fact, in our application the parallelization is efficient to the point that we take  the subregions to be an exhaustive set of moving windows centered at every grid point. 
@@ -410,7 +412,8 @@ The SAR representation as a global model for  the spatial field provides a conve
 Let $\bby$ be the observed field with covariance matrix $\Sigma$. The simple idea is to factor $\Sigma$ as $A^{-1} A^{-T}$ and then  check that $A\bby$ is a white noise field, or at least a spatial process with greatly reduced  spatial dependence. 
 Note that the choice of $A$ is not unique, but it makes sense to choose a version of the square root that has weights that are localized around each observation location. In this analysis 
   \[ \Sigma=  \sigma^2 B^{-1} B^{-T} + \tau^2 I  = \sigma B^{-1}( I + \tau^2 Q ) \sigma B^{-T}, \]
-where $Q$ is the precision matrix. If the $\tau= 0$ then the SAR matrix gives a version of $A$ that is localized. 
+where $Q$ is the precision matrix. If the $\tau= 0$ then the SAR matrix provides a transformation to white noise that is justified, and its approximate will be due just to the local stationary assumption in the fitting and the translation from the Matern to the SAR, which are both negligible as we have shown.
+then the SAR matrix gives a version of $A$ that is localized. MORE EXPLANATION
 If $\tau^2$ is small relative to $\sigma^2$, then $B\bby$ will have covariance  $(I +  \tau^2Q)$ and will approximate a white noise field. Small $\tau^2$ is a reasonable assumption in practice because one is often interested in simulation and prediction of spatial data that has strong spatial coherence. Note that $Q$ is sparse and when viewed as a covariance matrix will have localized, finitely supported correlations. Avoiding explicitly calculating $A$ (which requires dense matrix computation), we propose a refinement of just using $B$ as a decorrelation transformation: in addition, approximate the inverse square root of $( I + \tau^2 Q )$ with a series expansion to find a more accurate approximation to $A$. 
 From elementary power series expansions we have 
 \[ 1/\sqrt{ 1 + u} =  1  - \frac{1}{2}u + \frac{1\cdot 3}{2 \cdot 4} u^2 - \frac{1 \cdot 3 \cdot 5}{2 \cdot 4 \cdot 6} u^3 + \ldots, \]
@@ -427,8 +430,11 @@ We also explored the stationary Mat\'ern-SAR covariance model approximation, con
 
 An important contribution of this work is showing nonstationary data can be modeled by combining local maximum likelihood estimation with a simple global nonstationary covariance model that is straightforward to implement. We focused on encoding the locally estimated parameters in the nonstationary SAR model. In addition, the multistage approach is computationally efficient and can be applied to very large spatial data sets: local estimation avoids the big $n$ problem of global estimation, and encoding local estimates in a SAR model allows us to exploit sparsity for prediction and simulation. Another major advantage of this method is that it can be applied to both continuously indexed and lattice data. 
 To reduce the scope of this work we have focused on lattice data. Although this restricted format will continue to be standard for climate models, the SAR model can also be extended to irregularly spaced data. One approach for non-lattice spatial data is the LatticeKrig model that imposes the SAR and lattice structure on coefficients in a basis function expansion rather than directly on the field.  We believe the anisotropic models developed here will carry over for more general models such as basis expansions, and the inverse square root transformation will be an important diagnostic tool for nonstationary modeling. 
- 
 
+DISCUSS: how to generalize this model to irregularly spaced observations and other linear functionals of the process. 
+ 
+ AND ADD THIS TO INTRODUCTION
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
